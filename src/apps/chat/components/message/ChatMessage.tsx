@@ -59,17 +59,17 @@ export function makeAvatar(messageAvatar: string | null, messageRole: DMessage['
 
     case 'assistant':
       // display a gif avatar when the assistant is typing (people seem to love this, so keeping it after april fools')
-      if (messageTyping) {
-        return <Avatar
-          alt={messageSender} variant='plain'
-          src={messageOriginLLM === 'prodia'
-            ? 'https://i.giphy.com/media/5t9ujj9cMisyVjUZ0m/giphy.webp'
-            : messageOriginLLM?.startsWith('react-')
-              ? 'https://i.giphy.com/media/l44QzsOLXxcrigdgI/giphy.webp'
-              : 'https://i.giphy.com/media/jJxaUysjzO9ri/giphy.webp'}
-          sx={{ ...mascotSx, borderRadius: 'var(--joy-radius-sm)' }}
-        />;
-      }
+      // if (messageTyping) {
+      //   return <Avatar
+      //     alt={messageSender} variant='plain'
+      //     src={messageOriginLLM === 'prodia'
+      //       ? 'https://i.giphy.com/media/5t9ujj9cMisyVjUZ0m/giphy.webp'
+      //       : messageOriginLLM?.startsWith('react-')
+      //         ? 'https://i.giphy.com/media/l44QzsOLXxcrigdgI/giphy.webp'
+      //         : 'https://i.giphy.com/media/jJxaUysjzO9ri/giphy.webp'}
+      //     sx={{ ...mascotSx, borderRadius: 'var(--joy-radius-sm)' }}
+      //   />;
+      // }
       // display the purpose symbol
       if (messageOriginLLM === 'prodia')
         return <PaletteOutlinedIcon sx={iconSx} />;

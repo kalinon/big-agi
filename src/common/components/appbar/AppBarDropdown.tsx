@@ -5,7 +5,7 @@ import { SxProps } from '@mui/joy/styles/types';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 
-type DropdownItem = Record<string, { title: string, symbol?: string }>;
+type DropdownItem = Record<string, { title: string, symbol?: string, disabled?: boolean}>;
 
 /**
  * A Select component that blends-in nicely (cleaner, easier to the eyes)
@@ -45,7 +45,7 @@ export const AppBarDropdown = <TValue extends string>(props: { value: TValue, it
       // ISSUE: Since Joy alpha.76+, the text will not be visually refreshed
       // Opened this BUG report to JoyUI: https://github.com/mui/material-ui/issues/37235
       // When the bug closes, we can go back to the latest JoyUI version in package.json
-      <Option key={idx} value={key}>
+      props.items[key].disabled ? <></> : <Option key={idx} value={key} disabled={props.items[key].disabled}>
         {props.showSymbols ? props.items[key]?.symbol || '' : ''} {props.items[key].title}
       </Option>
     ))}

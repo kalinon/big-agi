@@ -65,9 +65,8 @@ export const SystemPurposes: { [key in SystemPurposeId]: SystemPurposeData } = {
 };
 
 
-export type ChatModelId = 'gpt-4' | 'gpt-3.5-turbo';
-
-export const defaultChatModelId: ChatModelId = 'gpt-4';
+export type ChatModelId = 'gpt-4' | 'gpt-4-0314' | 'gpt-3.5-turbo' | 'gpt-3.5-turbo-0301';
+export const defaultChatModelId: ChatModelId = 'gpt-3.5-turbo';
 export const fastChatModelId: ChatModelId = 'gpt-3.5-turbo';
 
 type ChatModelData = {
@@ -76,6 +75,7 @@ type ChatModelData = {
   fullName: string; // seems unused
   contextWindowSize: number;
   tradeoff: string;
+  disabled?: boolean;
 }
 
 export const ChatModels: { [key in ChatModelId]: ChatModelData } = {
@@ -85,6 +85,15 @@ export const ChatModels: { [key in ChatModelId]: ChatModelData } = {
     fullName: 'GPT-4',
     contextWindowSize: 8192,
     tradeoff: 'Precise, slow and expensive',
+    disabled: true,
+  },
+  'gpt-4-0314': {
+    description: 'Most insightful, larger problems, but slow, expensive, and may be unavailable',
+    title: 'GPT-4-0314',
+    fullName: 'GPT-4-0314',
+    contextWindowSize: 8192,
+    tradeoff: 'Precise, slow and expensive',
+    disabled: true,
   },
   'gpt-3.5-turbo': {
     description: 'A good balance between speed and insight',
@@ -93,6 +102,13 @@ export const ChatModels: { [key in ChatModelId]: ChatModelData } = {
     contextWindowSize: 4097,
     tradeoff: 'Faster and cheaper',
   },
+  'gpt-3.5-turbo-0301': {
+    description: 'A good balance between speed and insight',
+    title: '3.5-Turbo-0301',
+    fullName: 'GPT-3.5 Turbo 0301',
+    contextWindowSize: 4097,
+    tradeoff: 'Faster and cheaper',
+  }
 };
 
 
