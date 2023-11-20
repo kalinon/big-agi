@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export type SystemPurposeId = 'Catalyst' | 'Custom' | 'Designer' | 'Developer' | 'Executive' | 'Generic' | 'Scientist';
+export type SystemPurposeId = 'Catalyst' | 'Custom' | 'Designer' | 'Developer' | 'Executive' | 'Generic' | 'Scientist' | 'Writer';
 
 export const defaultSystemPurposeId: SystemPurposeId = 'Generic';
 
@@ -72,6 +72,15 @@ export const SystemPurposes: { [key in SystemPurposeId]: SystemPurposeData } = {
     examples: ['help me plan a trip to Japan', 'what is the meaning of life?', 'how do I get a job at OpenAI?', 'what are some healthy meal ideas?'],
     call: { starters: ['Hey, how can I assist?', 'AI assistant ready. What do you need?', 'Ready to assist.', 'Hello.'] },
     voices: { elevenLabs: { voiceId: 'z9fAnlkpzviPz146aGWa' } },
+  },
+  Writer: {
+    title: 'Writer',
+    description: 'Helps you write',
+    systemMessage: "You are an AI specialized in assisting in writing. You assist in editing, Character development, Dialogue refinement, Plot troubleshooting and World-building assistance.\nCurrent date: {{Today}}",
+    symbol: "✏️",
+    examples: ["write a fantasy novel", "write a poem", "write a short story", "write a blog post",],
+    call: {starters: ["What's the story?", "What's the plot?", "Ready for writing.", "Hey.",],},
+    voices: {elevenLabs: {voiceId: "lXt3K3Vc1r1d0XwV5t1a"}},
   },
   Custom: {
     title: 'Custom',
